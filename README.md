@@ -4,7 +4,8 @@
 2. Create a C# Console application for Windows
 3. In lscript.cs, write the following code ->
 
-`using System.Diagnostics;
+```
+using System.Diagnostics;
 
 static class Program {
     [System.STAThread]
@@ -18,5 +19,5 @@ static class Program {
         Process.Start(psi);
     }
 }
-`
+```
 
